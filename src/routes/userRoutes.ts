@@ -1,4 +1,3 @@
-// src/routes/userRoutes.ts
 import express, { Request, Response, Router } from "express";
 import { userService } from "../services/userService";
 
@@ -19,7 +18,6 @@ interface PreferencesBody {
   [key: string]: any;
 }
 
-// Sync route
 router.post("/sync", (req: Request<{}, {}, SyncUserBody>, res: Response) => {
   userService
     .createOrUpdateUser(req.body)
@@ -30,7 +28,6 @@ router.post("/sync", (req: Request<{}, {}, SyncUserBody>, res: Response) => {
     });
 });
 
-// Get user by ID route
 router.get("/:id", (req: Request<UserRequestParams>, res: Response) => {
   userService
     .getUserById(req.params.id)
@@ -46,7 +43,6 @@ router.get("/:id", (req: Request<UserRequestParams>, res: Response) => {
     });
 });
 
-// Update preferences route
 router.patch(
   "/:id/preferences",
   (req: Request<UserRequestParams, {}, PreferencesBody>, res: Response) => {

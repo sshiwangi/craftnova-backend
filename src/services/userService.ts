@@ -1,4 +1,3 @@
-// src/services/userService.ts
 import User from "../models/user.model";
 
 interface UserInput {
